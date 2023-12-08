@@ -97,9 +97,9 @@ class Trainer:
             ]
         elif self.strategy == 'adapter':
             no_decay = ["adapter.proj_up.bias", "adapter.proj_down.bias", "LayerNorm"]
-            cls_bias = ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias']
-            cls_weight = ['cls.seq_relationship.weight', 'cls.predicions.transform.dense.weight', 'cls.predictions.decoder.weight']
-            layers = ["adapter.proj_up.weight", "adapter.proj_down.weight"]
+            cls_bias = ['classifier.bias']
+            cls_weight = ['classifier.weight']
+            layers = ["adapter.proj_up.weight", "adapter.proj_down.weight"]    
             layers.extend(cls_weight)
             no_decay.extend(cls_bias)
             
